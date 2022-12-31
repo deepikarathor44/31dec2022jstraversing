@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>js traversing</title>
+
+        <script>
+
+        </script>
+        <style>
+            #gp{
+                border: 6px solid black;
+                font-size: 2em;
+
+                
+               
+            }
+            #p{
+                border: 6px solid yellowgreen;
+            }
+            #c1{
+                border: 6px solid blue;
+            }
+            #c2{
+                border: 6px solid hotpink;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div id="gp">grandparent
+            <div id="p">parent
+                <div id="c1">child1</div>
+                <div id ="c2">child2</div>
+            </div>
+
+        </div>
+        <table border="1" >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>surname</th>
+                    <td>
+                        action
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>dipika</td>
+                    <td>rathor</td>
+                    <td>
+                        <button data-id="dl1" onclick="deletetd(this)">delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>pooja</td>
+                    <td>sharma</td>
+                    <td>
+                        <button data-id="dl2" onclick="deletetd(this)">delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>kavita</td>
+                    <td>patidar</td>
+                    <td>
+                        <button data-id="dl3" onclick="deletetd(this)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+           
+        </table>
+        
+
+        <script>
+            let a=document.querySelector(".c1");
+            a.innerHTML="children1";
+            a.style.border='3px solid green';
+
+            var b= Document.querySelector('.c2').closest(
+                '#gp'
+            );
+            console.log (b);
+            let ltd = document.querySelector('table tbody tr td:last-child')
+            ltd.style.color = 'yellow'
+            console.log(ltd);
+            let tbody= ltd .closest('tbody')
+
+            let p=tbody.querySelector('tr:nth-child2 td:first-child');
+
+            console.log(tbody);
+            p.style.color = 'purple'
+
+
+        </script>
+        <script>
+            function deletetd(element){
+                console.log(element);
+                let tr = element.closest('tr');
+                tr.remove();
+                console.log(tr);
+
+            }
+        </script>
+    </body>
+</html>
